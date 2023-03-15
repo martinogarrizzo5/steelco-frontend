@@ -1,0 +1,19 @@
+/* 
+    scrivere gli stili degli elementi usando la convenzione BEM (Block Element Modifier)
+    esempio:
+    .card {
+        ...
+    }
+    .card__title {
+        ...
+    }
+    .card__title--small {
+        ...
+    }
+    .card__content {
+        ...
+    }
+    .card__content__image {
+        ...
+    }
+*/
