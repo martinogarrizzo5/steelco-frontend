@@ -22,6 +22,7 @@ html {
 
 body {
   font-size: 1.6rem;
+  line-height: 1.2;
   font-family: "Poppins", sans-serif;
   height: 100vh;
   overflow: hidden;
