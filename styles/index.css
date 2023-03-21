@@ -31,6 +31,51 @@ body {
   align-items: center;
 }
 
+.content {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.content__row {
+
+  /*display: flex;
+  align-items: center;
+  width: max-content;
+  margin-bottom: 2rem;*/
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  /*width: max-content;
+  /*align-items: center;*/
+}
+
+.content__row__stabilimento {
+
+}
+
+.count {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logo {
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.update {
+  text-align: center;
+  margin-bottom: 5rem;
+  font-style: italic;
+}
+
 /* 
     scrivere gli stili degli elementi usando la convenzione BEM (Block Element Modifier)
     esempio:
@@ -50,30 +95,3 @@ body {
         ...
     }
 */
-.content {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  width: 80%;
-  margin: 0 auto;
-}
-
-.content__row {
-  display: flex;
-  align-items: center;
-  width: max-content;
-  margin-bottom: 2rem;
-}
-
-.logo {
-}
-
-.title {
-  text-align: center;
-  margin-bottom: 3rem;
-}
-.update {
-  text-align: center;
-  margin-bottom: 5rem;
-  font-style: italic;
-}
