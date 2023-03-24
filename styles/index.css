@@ -29,52 +29,117 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+
 }
 
 .content {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   text-align: center;
   width: 100%;
   margin: 0 auto;
+  height: 80%;
+  flex-wrap: wrap;
 }
 
 .content__row {
-
-  /*display: flex;
-  align-items: center;
-  width: max-content;
-  margin-bottom: 2rem;*/
-  margin-bottom: 2rem;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  /*width: max-content;
-  /*align-items: center;*/
+  align-items: center;
+  justify-content: center;
+  border-bottom: solid rgba(229, 229, 229, 0.938);;
+  padding: 3rem;
+  width: 45%;
+  margin: 0 auto;
 }
 
 .content__row__stabilimento {
-
+  font-size: 3.5rem;
+  width: 50%;
+  text-align: left;
+  font-weight: 500;
 }
 
 .count {
+  color: rgb(6, 6, 69);
+  font-size: 4rem;
+  font-weight: 700;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  text-align: left;
+  margin-right: 15px;
+  width: 8rem;
 }
 
 .logo {
+  display: block;
+  margin-right: auto;
 }
 
 .title {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2.4rem;
+  color: darkslateblue;
 }
+
 .update {
   text-align: center;
-  margin-bottom: 5rem;
+  margin-bottom: 4rem;
   font-style: italic;
+  color: darkslateblue;
+  margin-top: 13px;
 }
+
+.icon {
+  font-size: 4rem;
+  margin: 0 auto;
+}
+
+.icon--Check {
+  color: green;
+}
+
+.icon--XMark {
+  color:red;
+}
+
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid #0320b0;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #0c0199 transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 
 /* 
     scrivere gli stili degli elementi usando la convenzione BEM (Block Element Modifier)
