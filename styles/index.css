@@ -1,3 +1,7 @@
+:root {
+  --primaryColor: #243572;
+}
+
 *,
 *::after,
 *::before {
@@ -25,138 +29,97 @@ body {
   line-height: 1.2;
   font-family: "Poppins", sans-serif;
   height: 100vh;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
+  /* overflow: hidden; */
 }
 
 .content {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  text-align: center;
-  width: 100%;
-  margin: 0 auto;
-  height: 80%;
-  flex-wrap: wrap;
+  align-items: center;
+  justify-content: start;
+  height: 100%;
 }
 
-.content__row {
+.grid {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+  flex: 0;
+  margin: 0 auto;
+}
+
+.grid__row {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  border-bottom: solid rgba(229, 229, 229, 0.938);;
+  border-bottom: solid rgba(229, 229, 229, 0.938);
   padding: 3rem;
   width: 45%;
   margin: 0 auto;
 }
 
-.content__row__stabilimento {
-  font-size: 3.5rem;
-  width: 50%;
-  text-align: left;
-  font-weight: 500;
+.grid__row__factoryName {
+  color: var(--primaryColor);
+  font-size: 3.2rem;
+  width: 100%;
+  font-weight: 400;
+  margin-right: 2.8rem;
 }
 
 .count {
-  color: rgb(6, 6, 69);
-  font-size: 4rem;
+  color: var(--primaryColor);
+  font-size: 3.8rem;
   font-weight: 700;
   display: flex;
   flex-direction: column;
-  text-align: left;
-  margin-right: 15px;
+  text-align: right;
+  margin-right: 2.8rem;
+  margin-left: auto;
   width: 8rem;
 }
 
 .logo {
   display: block;
-  margin-right: auto;
+  margin: 2rem auto 0 3rem;
+  height: auto;
+  width: 22rem;
+  object-fit: contain;
 }
 
 .title {
-  text-align: center;
-  margin-bottom: 2.4rem;
-  color: darkslateblue;
+  font-size: 4rem;
+  margin-bottom: 3.2rem;
+  color: var(--primaryColor);
 }
 
 .update {
+  font-size: 2.2rem;
   text-align: center;
-  margin-bottom: 4rem;
+  margin-top: 4rem;
   font-style: italic;
-  color: darkslateblue;
-  margin-top: 13px;
+  color: var(--primaryColor);
 }
 
 .icon {
   font-size: 4rem;
-  margin: 0 auto;
+  width: 4rem;
+  height: 4rem;
 }
 
 .icon--Check {
   color: green;
 }
 
-.icon--XMark {
-  color:red;
+.icon--Warning {
+  color: red;
+  fill: red;
+  height: 4rem;
+  width: 4rem;
 }
 
-.lds-ring {
-  display: inline-block;
-  position: relative;
-  width: 80px;
-  height: 80px;
+.spinner {
+  margin: 24rem auto;
 }
-.lds-ring div {
-  box-sizing: border-box;
-  display: block;
-  position: absolute;
-  width: 64px;
-  height: 64px;
-  margin: 8px;
-  border: 8px solid #0320b0;
-  border-radius: 50%;
-  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: #0c0199 transparent transparent transparent;
-}
-.lds-ring div:nth-child(1) {
-  animation-delay: -0.45s;
-}
-.lds-ring div:nth-child(2) {
-  animation-delay: -0.3s;
-}
-.lds-ring div:nth-child(3) {
-  animation-delay: -0.15s;
-}
-@keyframes lds-ring {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-
-/* 
-    scrivere gli stili degli elementi usando la convenzione BEM (Block Element Modifier)
-    esempio:
-    .card {
-        ...
-    }
-    .card__title {
-        ...
-    }
-    .card__title--small {
-        ...
-    }
-    .card__content {
-        ...
-    }
-    .card__content__image {
-        ...
-    }
-*/

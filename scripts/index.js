@@ -1,16 +1,20 @@
 const host = "http://localhost:5000";
 
+const warningSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>`;
+
+const fetchInterval = 1000 * 60 * 60 * 6; // 6 hours
 const dayMilliseconds = 1000 * 60 * 60 * 24;
 const dateStyle = {
-  weekday: "long",
+  day: "2-digit",
+  month: "2-digit",
   year: "numeric",
-  month: "long",
-  day: "numeric",
-  hour: "numeric",
-  minute: "numeric",
+  hour: "2-digit",
+  minute: "2-digit",
 };
 
-setInterval(handleReportFetch(), 21600000); // repeat every 6 hours
+handleReportFetch().then(() => {
+  setInterval(handleReportFetch, fetchInterval); // repeat every 6 hours
+});
 
 async function handleReportFetch() {
   try {
@@ -38,18 +42,23 @@ function buildReportEl(factory) {
 
   let days = "/";
   if (factory.lastInjuryDate != null) {
-    days = Math.ceil(timeDifference / dayMilliseconds);
+    days = Math.floor(timeDifference / dayMilliseconds);
+  }
+
+  let iconToShow = `<div class="icon"></div>`;
+
+  if (days == 0) {
+    iconToShow = ` <i class="fa-regular fa-circle-xmark icon--Warning icon"></i>`;
+  } else if (days > 80) {
+    iconToShow = ` <i class="fa-regular fa-circle-check icon--Check icon"></i>`;
   }
 
   let factoryEl = `
-    <div class="content__row">
-    <h2 class="content__row__stabilimento">${factory.address}(${factory.name}) :
+    <div class="grid__row">
+    <h2 class="grid__row__factoryName">${factory.address} (${factory.name}) :
     </h2>
     <span class="count">${days}</span>
-    <i class="fa-regular ${
-      days < 2 ? "fa-circle-xmark icon--XMark" : "fa-circle-check icon--Check"
-    } 
-    icon"></i>
+    ${iconToShow}
     </div>
   `;
 
@@ -61,11 +70,11 @@ function clearReport() {
 }
 
 function showSpinner() {
-  const spinner = `<div class="lds-ring"><div></div><div></div><div></div><div></div></div>`;
+  const spinner = `<div class="lds-ring spinner"><div></div><div></div><div></div><div></div></div>`;
   document.querySelector(`#list`).innerHTML = spinner;
 }
 
 function updateTime() {
   document.querySelector(`#update`).innerText =
-    "Dati aggiornati a : " + new Date().toLocaleDateString("IT-IT", dateStyle);
+    "Dati aggiornati a : " + new Date().toLocaleDateString("It-IT", dateStyle);
 }
